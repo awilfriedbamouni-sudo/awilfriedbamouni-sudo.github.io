@@ -55,6 +55,7 @@
       z-index: 2;
       max-width: 1040px;
       margin: 0 auto;
+      text-align: center;
     }
 
     .hero-curve {
@@ -100,7 +101,12 @@
     .hero-title span { color: #93c5fd; }
 
     .hero-pitch {
-      max-width: 720px;
+      max-width: 760px;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      text-align: justify;
+      text-align-last: center;
+      hyphens: auto;
       font-size: 1rem;
       color: #cbd5e1;
       margin: 0 0 24px;
@@ -109,6 +115,7 @@
     .contact-row {
       display: flex;
       flex-wrap: wrap;
+      justify-content: center;
       gap: 10px;
       margin-bottom: 36px;
     }
@@ -147,6 +154,7 @@
     .hero-roles {
       display: flex;
       flex-wrap: wrap;
+      justify-content: center;
       gap: 8px;
     }
 
@@ -245,6 +253,7 @@
       padding: 10px 16px;
       overflow-x: auto;
       scrollbar-width: none;
+      justify-content: safe center;
     }
 
     .tabs::-webkit-scrollbar { display: none; }
@@ -310,7 +319,10 @@
       font-weight: 650;
     }
 
-    p { margin: 0 0 10px; font-size: 0.96rem; }
+    p { margin: 0 0 10px; font-size: 0.96rem; text-align: justify; hyphens: auto; }
+    li { text-align: justify; hyphens: auto; }
+    .section-lead, .item-meta, .hero-title { text-align: inherit; }
+    h2 + .section-lead { text-align: left; }
 
     .item-meta {
       font-size: 0.84rem;
@@ -605,6 +617,7 @@
 
     @media (max-width: 640px) {
       header { padding: 40px 16px 48px; }
+      .hero-pitch { text-align: center; }
       .grid-2, .grid-3, .actu-grid, .projects, .pipeline { grid-template-columns: 1fr; }
       .card { padding: 20px 16px; }
     }
@@ -644,7 +657,7 @@
     </svg>
 
     <div class="hero-inner">
-      <div class="eyebrow">μ · σ · β̂ · h(t) · Marseille, France</div>
+      <div class="eyebrow">μ · σ · β · h(t) · Marseille, France</div>
       <h1>Armand-Wilfried BAMOUNI</h1>
       <p class="hero-title">Chargé d’études <span>statistiques &amp; actuarielles</span> · Démographe · Économiste</p>
       <p class="hero-pitch">
