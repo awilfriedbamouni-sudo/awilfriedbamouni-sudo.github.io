@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Armand-Wilfried BAMOUNI · Statisticien & Démographe</title>
+  <meta name="description" content="Portfolio d'Armand-Wilfried BAMOUNI, chargé d’études statistiques et actuarielles, démographe et économiste. Modélisation, analyse de survie, analyse multivariée, statistique spatiale, prévision démographique, prévoyance, santé et retraite." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #0f172a;
+      --ink-soft: #334155;
+      --muted: #64748b;
+      --line: #e2e8f0;
+      --bg: #f6f7fb;
+      --card: #ffffff;
+      --accent: #2563eb;
+      --accent-2: #0d9488;
+      --accent-3: #7c3aed;
+      --accent-soft: #eff6ff;
+      --hero-1: #0b1220;
+      --hero-2: #13213d;
+      --radius: 18px;
+      --shadow: 0 12px 30px rgba(15, 23, 42, 0.07);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.55;
+    }
+
+    a { color: var(--accent); }
+
+    /* ---------- HERO ---------- */
+    header {
+      position: relative;
+      overflow: hidden;
+      background: radial-gradient(1200px 500px at 85% -10%, #1e3a8a55, transparent 60%),
+                  linear-gradient(135deg, var(--hero-1), var(--hero-2));
+      color: #fff;
+      padding: 56px 16px 64px;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+
+    .hero-curve {
+      position: absolute;
+      inset: auto 0 0 0;
+      width: 100%;
+      height: 220px;
+      z-index: 1;
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      color: #93c5fd;
+      background: rgba(147, 197, 253, 0.1);
+      border: 1px solid rgba(147, 197, 253, 0.25);
+      padding: 6px 12px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+    }
+
+    header h1 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .hero-title {
+      font-size: clamp(1.05rem, 2.4vw, 1.3rem);
+      font-weight: 600;
+      color: #e2e8f0;
+      margin: 0 0 14px;
+    }
+
+    .hero-title span { color: #93c5fd; }
+
+    .hero-pitch {
+      max-width: 720px;
+      font-size: 1rem;
+      color: #cbd5e1;
+      margin: 0 0 24px;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 36px;
+    }
+
+    .chip-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .chip-link:hover { background: rgba(255, 255, 255, 0.16); transform: translateY(-1px); }
+
+    .chip-link.primary { background: #2563eb; border-color: #2563eb; }
+    .chip-link.primary:hover { background: #1d4ed8; }
+
+    .in-badge {
+      display: inline-grid;
+      place-items: center;
+      width: 18px; height: 18px;
+      border-radius: 4px;
+      background: #0a66c2;
+      font-size: 0.7rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    /* Domaines d'expertise (hero) */
+    .hero-roles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .hero-roles span {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.78rem;
+      color: #e2e8f0;
+      padding: 6px 12px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    /* Atouts actuariels */
+    .actu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+
+    .actu {
+      border-radius: 14px;
+      padding: 16px;
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-top: 3px solid var(--accent-3);
+    }
+
+    .actu h3 { margin: 0 0 6px; font-size: 0.98rem; }
+    .actu p { font-size: 0.86rem; color: var(--ink-soft); margin-bottom: 6px; }
+    .actu .from { font-size: 0.78rem; color: var(--muted); }
+
+    .formula {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.78rem;
+      color: var(--accent-3);
+      background: #f5f3ff;
+      border-radius: 6px;
+      padding: 3px 8px;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+
+    /* Passerelle démographie -> actuariat */
+    .bridge { width: 100%; border-collapse: separate; border-spacing: 0 8px; }
+    .bridge th {
+      text-align: left;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      padding: 0 12px;
+    }
+    .bridge td {
+      background: #f8fafc;
+      padding: 12px;
+      font-size: 0.9rem;
+      vertical-align: top;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .bridge td:first-child { border-left: 1px solid var(--line); border-radius: 12px 0 0 12px; width: 44%; }
+    .bridge td:last-child { border-right: 1px solid var(--line); border-radius: 0 12px 12px 0; }
+    .bridge td.arrow { width: 36px; text-align: center; color: var(--accent-3); font-weight: 700; border-left: none; border-right: none; }
+    .bridge td strong { display: block; margin-bottom: 2px; }
+    .bridge td span { color: var(--muted); font-size: 0.82rem; }
+
+    .transpose {
+      margin-top: 10px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: #f5f3ff;
+      border: 1px solid #ede9fe;
+      font-size: 0.88rem;
+      color: #4c1d95;
+    }
+
+    @media (max-width: 640px) {
+      .bridge td.arrow { display: none; }
+      .bridge tr { display: grid; grid-template-columns: 1fr; margin-bottom: 8px; }
+      .bridge thead { display: none; }
+      .bridge td, .bridge td:first-child, .bridge td:last-child { width: auto; border: 1px solid var(--line); border-radius: 12px; margin-bottom: 4px; }
+    }
+
+    /* ---------- NAV ---------- */
+    .tabs-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(246, 247, 251, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tabs {
+      max-width: 1040px;
+      margin: 0 auto;
+      display: flex;
+      gap: 6px;
+      padding: 10px 16px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .tabs::-webkit-scrollbar { display: none; }
+
+    .tab-btn {
+      flex: 0 0 auto;
+      padding: 9px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink-soft);
+      cursor: pointer;
+      font: inherit;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .tab-btn:hover { border-color: #94a3b8; }
+
+    .tab-btn.active {
+      background: var(--ink);
+      color: #fff;
+      border-color: var(--ink);
+      font-weight: 600;
+    }
+
+    /* ---------- LAYOUT ---------- */
+    .container {
+      max-width: 1040px;
+      margin: 28px auto 48px;
+      padding: 0 16px;
+    }
+
+    .tab-content { display: none; animation: fadeIn 0.25s ease-out; }
+    .tab-content.active { display: block; }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 26px 24px;
+      box-shadow: var(--shadow);
+      border: 1px solid #eef1f6;
+      margin-bottom: 18px;
+    }
+
+    h2 {
+      margin: 0 0 6px;
+      font-size: 1.45rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .section-lead {
+      color: var(--muted);
+      margin: 0 0 20px;
+      font-size: 0.97rem;
+    }
+
+    h3 {
+      margin: 18px 0 4px;
+      font-size: 1.05rem;
+      font-weight: 650;
+    }
+
+    p { margin: 0 0 10px; font-size: 0.96rem; }
+
+    .item-meta {
+      font-size: 0.84rem;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    ul { padding-left: 18px; margin: 6px 0 10px; }
+    li { margin-bottom: 5px; font-size: 0.94rem; }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+
+    /* Tags */
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 4px; }
+
+    .tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #1e40af;
+      border: 1px solid #dbeafe;
+    }
+
+    .tag.teal { background: #f0fdfa; color: #0f766e; border-color: #ccfbf1; }
+    .tag.violet { background: #f5f3ff; color: #6d28d9; border-color: #ede9fe; }
+    .tag.amber { background: #fffbeb; color: #b45309; border-color: #fef3c7; }
+
+    /* Pipeline */
+    .pipeline {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      counter-reset: step;
+    }
+
+    .step {
+      position: relative;
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px 12px;
+    }
+
+    .step::before {
+      counter-increment: step;
+      content: "0" counter(step);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.75rem;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .step strong { display: block; margin: 4px 0; font-size: 0.95rem; }
+    .step span { font-size: 0.82rem; color: var(--muted); line-height: 1.4; display: block; }
+
+    /* Method cards */
+    .method {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px;
+      background: #fff;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+
+    .method:hover {
+      border-color: #bfdbfe;
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .method-icon {
+      width: 38px; height: 38px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      background: var(--accent-soft);
+      margin-bottom: 10px;
+    }
+
+    .method h3 { margin-top: 0; font-size: 1rem; }
+    .method p { font-size: 0.87rem; color: var(--ink-soft); margin-bottom: 6px; }
+    .method .apply { font-size: 0.8rem; color: var(--muted); }
+
+    /* Skill bars */
+    .skill { margin-bottom: 12px; }
+
+    .skill-head {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.88rem;
+      margin-bottom: 5px;
+    }
+
+    .skill-head span:last-child { color: var(--muted); font-size: 0.8rem; }
+
+    .bar {
+      height: 8px;
+      background: #eef2f7;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .bar > i {
+      display: block;
+      height: 100%;
+      width: 0;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      transition: width 1s ease-out;
+    }
+
+    /* Timeline */
+    .timeline { position: relative; padding-left: 26px; }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 7px; top: 6px; bottom: 6px;
+      width: 2px;
+      background: linear-gradient(var(--accent), var(--accent-2));
+      border-radius: 2px;
+    }
+
+    .t-item { position: relative; margin-bottom: 26px; }
+    .t-item:last-child { margin-bottom: 0; }
+
+    .t-item::before {
+      content: "";
+      position: absolute;
+      left: -25px; top: 6px;
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: #fff;
+      border: 3px solid var(--accent);
+    }
+
+    .t-item.current::before { background: var(--accent); box-shadow: 0 0 0 5px #dbeafe; }
+
+    .t-item h3 { margin-top: 0; }
+
+    .badge-now {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #047857;
+      background: #d1fae5;
+      padding: 2px 8px;
+      border-radius: 999px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    /* Mini chiffres dans expériences */
+    .mini-kpis {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 10px 0 6px;
+    }
+
+    .mini-kpi {
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 8px 12px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .mini-kpi b { display: block; font-size: 1.05rem; color: var(--ink); }
+
+    /* Filtres projets */
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+
+    .filter-btn {
+      font: inherit;
+      font-size: 0.84rem;
+      padding: 7px 13px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink-soft);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+    .filter-count { opacity: 0.7; font-size: 0.78rem; margin-left: 2px; }
+
+    .projects { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+    .project {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .project:hover { border-color: #bfdbfe; box-shadow: 0 8px 20px rgba(37, 99, 235, 0.07); }
+    .project.hidden { display: none; }
+
+    .project h3 { margin: 0 0 4px; font-size: 0.98rem; line-height: 1.35; }
+    .project p { font-size: 0.87rem; color: var(--ink-soft); }
+
+    .project .method-line {
+      margin-top: auto;
+      padding-top: 10px;
+      border-top: 1px dashed var(--line);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.74rem;
+      color: var(--accent);
+    }
+
+    /* Mémoire mis en avant */
+    .feature {
+      background: linear-gradient(135deg, #eff6ff, #f0fdfa);
+      border: 1px solid #dbeafe;
+    }
+
+    .feature-label {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.75rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .quote {
+      border-left: 3px solid var(--accent);
+      padding: 4px 0 4px 14px;
+      color: var(--ink-soft);
+      font-style: italic;
+      margin: 14px 0;
+    }
+
+    /* Distinctions */
+    .award {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .award:last-child { border-bottom: none; }
+
+    .award-dot {
+      flex: 0 0 34px;
+      height: 34px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      background: #fef3c7;
+      font-size: 1rem;
+    }
+
+    .award strong { display: block; font-size: 0.95rem; }
+    .award span { font-size: 0.85rem; color: var(--muted); }
+
+    /* Footer */
+    footer {
+      background: var(--hero-1);
+      color: #cbd5e1;
+      padding: 32px 16px;
+      text-align: center;
+      font-size: 0.88rem;
+    }
+
+    footer .foot-title { color: #fff; font-weight: 700; font-size: 1.1rem; margin-bottom: 6px; }
+
+    footer .contact-row { justify-content: center; margin: 14px 0 0; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 860px) {
+      .grid-3, .actu-grid { grid-template-columns: 1fr 1fr; }
+      .pipeline { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      header { padding: 40px 16px 48px; }
+      .grid-2, .grid-3, .actu-grid, .projects, .pipeline { grid-template-columns: 1fr; }
+      .card { padding: 20px 16px; }
+    }
+
+    @media print {
+      .tabs-wrap, .filters { display: none; }
+      .tab-content { display: block !important; }
+      .project.hidden { display: flex !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== HERO ==================== -->
+  <header>
+    <svg class="hero-curve" viewBox="0 0 1200 220" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <linearGradient id="g1" x1="0" x2="1">
+          <stop offset="0" stop-color="#60a5fa"/>
+          <stop offset="1" stop-color="#2dd4bf"/>
+        </linearGradient>
+      </defs>
+      <!-- densité gaussienne -->
+      <path d="M0,215 C250,215 380,205 470,150 C540,105 570,30 600,30 C630,30 660,105 730,150 C820,205 950,215 1200,215"
+            fill="none" stroke="url(#g1)" stroke-width="2.5"/>
+      <path d="M0,215 C250,215 380,205 470,150 C540,105 570,30 600,30 C630,30 660,105 730,150 C820,205 950,215 1200,215 L1200,220 L0,220 Z"
+            fill="url(#g1)" opacity="0.08"/>
+      <!-- histogramme -->
+      <g fill="#93c5fd" opacity="0.25">
+        <rect x="420" y="180" width="28" height="40"/><rect x="452" y="150" width="28" height="70"/>
+        <rect x="484" y="112" width="28" height="108"/><rect x="516" y="72" width="28" height="148"/>
+        <rect x="548" y="46" width="28" height="174"/><rect x="580" y="36" width="28" height="184"/>
+        <rect x="612" y="52" width="28" height="168"/><rect x="644" y="80" width="28" height="140"/>
+        <rect x="676" y="120" width="28" height="100"/><rect x="708" y="156" width="28" height="64"/>
+        <rect x="740" y="184" width="28" height="36"/>
+      </g>
+    </svg>
+
+    <div class="hero-inner">
+      <div class="eyebrow">μ · σ · β̂ · h(t) · Marseille, France</div>
+      <h1>Armand-Wilfried BAMOUNI</h1>
+      <p class="hero-title">Chargé d’études <span>statistiques &amp; actuarielles</span> · Démographe · Économiste</p>
+      <p class="hero-pitch">
+        Je transforme des données brutes (enquêtes, registres, bases administratives) en modèles statistiques
+        robustes, en mesures du risque et en indicateurs qui éclairent la décision. Tables de mortalité, analyse
+        de survie, modèles linéaires généralisés, projections et scénarios : de la donnée brute jusqu’au livrable.
+      </p>
+
+      <div class="contact-row">
+        <a class="chip-link primary" href="mailto:awilfried.bamouni@gmail.com">✉ awilfried.bamouni@gmail.com</a>
+        <a class="chip-link" href="mailto:armand-wilfried.bamouni@etu.univ-amu.fr">✉ armand-wilfried.bamouni@etu.univ-amu.fr</a>
+        <a class="chip-link" href="tel:+33753697594">☎ +33 7 53 69 75 94</a>
+        <a class="chip-link" href="https://www.linkedin.com/in/a-w-bamouni/" target="_blank" rel="noopener">
+          <span class="in-badge">in</span> a-w-bamouni
+        </a>
+      </div>
+
+      <div class="hero-roles">
+        <span>Études statistiques</span>
+        <span>Études actuarielles : prévoyance, santé, retraite</span>
+        <span>Analyse de survie & biométrie</span>
+        <span>Prévision démographique</span>
+        <span>Pilotage de projets data</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== NAV ==================== -->
+  <nav class="tabs-wrap">
+    <div class="tabs" role="tablist">
+      <button class="tab-btn active" data-tab="apropos">À propos</button>
+      <button class="tab-btn" data-tab="stats">Expertise statistique</button>
+      <button class="tab-btn" data-tab="experiences">Expériences</button>
+      <button class="tab-btn" data-tab="projets">Projets</button>
+      <button class="tab-btn" data-tab="parcours">Parcours</button>
+    </div>
+  </nav>
+
+  <main class="container">
+
+    <!-- ==================== À PROPOS ==================== -->
+    <section id="apropos" class="tab-content active">
+      <div class="card">
+        <h2>Des données à la décision</h2>
+        <p class="section-lead">Statistique appliquée · Démographie · Économie</p>
+
+        <p>
+          Formé à l’interface de l’économie et de la démographie, puis en <strong>Mathématiques appliquées &amp;
+          Statistique</strong> à Aix-Marseille Université, j’ai construit mon profil autour d’une conviction :
+          <strong>une décision n’est jamais meilleure que la statistique qui la fonde</strong>.
+        </p>
+        <p>
+          Mon terrain de prédilection, ce sont les phénomènes de population (santé, fécondité, mortalité,
+          éducation, vulnérabilités sociales) et les grandes bases de données qui permettent de les mesurer :
+          enquêtes démographiques et de santé (EDS/DHS), données d’enquêtes ménages, fichiers administratifs,
+          données géolocalisées. J’y applique toute la chaîne statistique : plan d’échantillonnage et collecte,
+          nettoyage et appariement, modélisation, validation, puis restitution sous forme d’indicateurs,
+          de cartes et de tableaux de bord.
+        </p>
+        <p>
+          À la <strong>Ville de Marseille (Direction de l’Éducation)</strong>, j’ai tenu un rôle de
+          <strong>chargé d’études statistiques, socio-démographe et chef de projet</strong> : modélisation et
+          projection des effectifs des 474 écoles de la ville, conduite des études de sectorisation, coordination
+          des acteurs et production des livrables d’aide à la décision.
+        </p>
+        <p>
+          Mon profil de démographe me donne aussi un socle directement mobilisable en <strong>études actuarielles,
+          notamment en prévoyance, santé et retraite</strong>, ainsi qu’en assurance vie et dépendance : tables de
+          mortalité, lois de survie et de maintien (incapacité, invalidité), segmentation des risques, projections
+          sous hypothèses et suivi prévu / observé. Je souhaite mettre ces compétences au service des collectivités,
+          de la santé publique, des mutuelles et groupes de protection sociale, des assureurs et des cabinets
+          d’études et de conseil.
+        </p>
+        <p>
+          Curieux de nature, <strong>j’aime apprendre de nouvelles choses</strong> et je m’adapte rapidement aux
+          nouveaux outils, langages et méthodes, tout en gardant un regard critique sur la validité des résultats.
+        </p>
+
+        <div class="quote">
+          « Rigoureux et animé par l’innovation méthodologique, je cherche à tirer pleinement parti des données
+          pour éclairer la décision et renforcer les connaissances sur les populations. »
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Ce que j’apporte</h2>
+        <p class="section-lead">Cinq piliers, un même fil : la mesure rigoureuse.</p>
+        <div class="grid-2">
+          <div class="method">
+            <div class="method-icon">⚖️</div>
+            <h3>Mesurer le risque</h3>
+            <p>Tables de mortalité, probabilités de survie et de décès, modèles de durée et GLM pour quantifier et segmenter des risques individuels.</p>
+          </div>
+          <div class="method">
+            <div class="method-icon">📈</div>
+            <h3>Modéliser</h3>
+            <p>Régressions logistiques (binaire, multinomiale), modèles de Cox, modèles multiniveaux, analyse factorielle.</p>
+          </div>
+          <div class="method">
+            <div class="method-icon">🔮</div>
+            <h3>Prévoir</h3>
+            <p>Projections démographiques par composantes, montée de cohortes, scénarios de capacité à horizon 2035.</p>
+          </div>
+          <div class="method">
+            <div class="method-icon">🗺️</div>
+            <h3>Spatialiser</h3>
+            <p>Géocodage massif, jointures spatiales, clustering sous contrainte de contiguïté, cartographie décisionnelle.</p>
+          </div>
+          <div class="method" style="grid-column: 1 / -1;">
+            <div class="method-icon">🌱</div>
+            <h3>Apprendre en continu</h3>
+            <p>Prise en main rapide de nouveaux outils, langages et méthodes, et veille active sur les évolutions de la data science.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Distinctions & financements</h2>
+        <div class="award">
+          <div class="award-dot">🏅</div>
+          <div>
+            <strong>Bourse d’excellence Tiger · Master 2 MASS POP · 2025–2026</strong>
+            <span>Financement du Master 2 à Aix-Marseille Université par AMIDEX, l’Initiative d’Excellence de l’université (France 2030, ANR-24-TFR-22).</span>
+          </div>
+        </div>
+        <div class="award">
+          <div class="award-dot">🥇</div>
+          <div>
+            <strong>Bourse d’études · Master de Démographie (ISSP) · 2023–2025</strong>
+            <span>Obtenue pour avoir figuré parmi les 5 premiers admis au concours d’entrée de l’Institut Supérieur des Sciences de la Population.</span>
+          </div>
+        </div>
+        <div class="award">
+          <div class="award-dot">🔬</div>
+          <div>
+            <strong>Contribution à un projet financé par la National Science Foundation (USA)</strong>
+            <span>Éthique de la recherche sur les sujets humains, en collaboration internationale (USA, Népal, Canada).</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="grid-2">
+          <div>
+            <h2>Langues</h2>
+            <ul>
+              <li><strong>Français</strong> : langue maternelle</li>
+              <li><strong>Anglais</strong> : niveau B2 (lecture et rédaction scientifiques)</li>
+            </ul>
+          </div>
+          <div>
+            <h2>Engagement</h2>
+            <ul>
+              <li>Président du Club des Étudiants du Département de Démographie (2024–2025)</li>
+              <li>Chargé des affaires extérieures, Club des Analystes en Politiques Économiques (2021–2022)</li>
+              <li>Chargé des affaires extérieures, AIESEC (2020–2021)</li>
+              <li>Centres d’intérêt : natation, football, lecture</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== EXPERTISE STATISTIQUE ==================== -->
+    <section id="stats" class="tab-content">
+      <div class="card">
+        <h2>Atouts de chargé d’études actuarielles : prévoyance, santé, retraite</h2>
+        <p class="section-lead">Les compétences de la démographie et de la statistique fondent l’actuariat de personnes : mesurer, modéliser et projeter les risques liés à la durée de vie, à la santé et aux comportements, en prévoyance, en santé, en retraite, en assurance vie et en dépendance.</p>
+
+        <div class="actu-grid">
+          <div class="actu">
+            <div class="formula">q<sub>x</sub> · l<sub>x</sub> · e<sub>x</sub></div>
+            <h3>Biométrie & tables de mortalité</h3>
+            <p>Construction et lecture de tables de mortalité, quotients par âge, espérance de vie, estimation directe et indirecte (Brass, orphelinat) lorsque les données sont incomplètes.</p>
+            <div class="from">Utile pour : risque décès, rentes, régimes de retraite</div>
+          </div>
+          <div class="actu">
+            <div class="formula">h(t|x) = h₀(t)·e<sup>βx</sup></div>
+            <h3>Modèles de durée</h3>
+            <p>Kaplan-Meier, modèles de Cox, gestion de la censure et de la troncature : les outils des lois de maintien, de rachat, de survenance et de résiliation.</p>
+            <div class="from">Utile pour : incapacité, invalidité, dépendance, résiliation</div>
+          </div>
+          <div class="actu">
+            <div class="formula">g(E[Y]) = Xβ</div>
+            <h3>GLM & segmentation</h3>
+            <p>Régressions logistiques binaire et multinomiale, interprétation des odds ratios, sélection de variables et typologies : base de la tarification et du scoring.</p>
+            <div class="from">Utile pour : tarification santé et prévoyance, segmentation</div>
+          </div>
+          <div class="actu">
+            <div class="formula">P<sub>t+1</sub> = f(P<sub>t</sub>, θ)</div>
+            <h3>Projections & scénarios</h3>
+            <p>Projections par composantes et par cohortes, hypothèses paramétrables, scénarios alternatifs et analyses de sensibilité à horizon 10 ans.</p>
+            <div class="from">Utile pour : projection de portefeuilles, provisions, engagements retraite</div>
+          </div>
+          <div class="actu">
+            <div class="formula">prévu − observé</div>
+            <h3>Backtesting & validation</h3>
+            <p>Confrontation systématique des prévisions aux réalisations, mesure des écarts par segment, recalibrage des hypothèses.</p>
+            <div class="from">Utile pour : suivi de sinistralité, revue des hypothèses</div>
+          </div>
+          <div class="actu">
+            <div class="formula">~93 000 lignes</div>
+            <h3>Qualité de gros volumes</h3>
+            <p>Nettoyage, dédoublonnage, appariement probabiliste, contrôles de cohérence et automatisation (R, Python, VBA, SQL) sur des bases de plusieurs dizaines de milliers de lignes.</p>
+            <div class="from">Utile pour : bases de sinistres, de contrats et d’assurés</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>De la démographie à l’actuariat de personnes</h2>
+        <p class="section-lead">Ce que j’ai déjà pratiqué, et son équivalent direct en prévoyance, santé et retraite.</p>
+        <table class="bridge">
+          <thead>
+            <tr><th>Ce que je maîtrise</th><th></th><th>Ce que cela devient en actuariat</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Tables de mortalité et quotients par âge</strong><span>Mémoire de démographie, estimation directe et indirecte</span></td>
+              <td class="arrow">→</td>
+              <td><strong>Lois biométriques</strong><span>Risque décès, rentes viagères, retraite</span></td>
+            </tr>
+            <tr>
+              <td><strong>Kaplan-Meier et modèles de Cox</strong><span>Survie des enfants, risque de naissance</span></td>
+              <td class="arrow">→</td>
+              <td><strong>Lois de maintien et de sortie</strong><span>Incapacité, invalidité, dépendance, résiliation</span></td>
+            </tr>
+            <tr>
+              <td><strong>Régressions logistiques et typologies</strong><span>Fécondité, nutrition, intégration</span></td>
+              <td class="arrow">→</td>
+              <td><strong>GLM et segmentation</strong><span>Tarification santé et prévoyance</span></td>
+            </tr>
+            <tr>
+              <td><strong>Montée de cohortes et scénarios</strong><span>Carte scolaire de Marseille 2026 à 2029</span></td>
+              <td class="arrow">→</td>
+              <td><strong>Projection de portefeuilles</strong><span>Engagements, provisions, prospective</span></td>
+            </tr>
+            <tr>
+              <td><strong>Comparaison prévu / observé</strong><span>Backtesting 2022 à 2025 par niveau</span></td>
+              <td class="arrow">→</td>
+              <td><strong>Suivi de la sinistralité</strong><span>Revue et recalibrage des hypothèses</span></td>
+            </tr>
+            <tr>
+              <td><strong>Appariement et qualité de données</strong><span>~93 000 enregistrements croisés</span></td>
+              <td class="arrow">→</td>
+              <td><strong>Fiabilisation des bases</strong><span>Contrats, assurés, prestations</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h2>Ma chaîne de valeur statistique</h2>
+        <p class="section-lead">Je maîtrise chaque maillon, de la donnée brute à la décision.</p>
+        <div class="pipeline">
+          <div class="step"><strong>Collecter</strong><span>Plans de sondage, questionnaires KoBoToolbox, ODK, CSPro, LimeSurvey</span></div>
+          <div class="step"><strong>Fiabiliser</strong><span>Nettoyage, contrôles de cohérence, appariement probabiliste, géocodage</span></div>
+          <div class="step"><strong>Modéliser</strong><span>Régression, survie, multivarié, multiniveau, méthodes démographiques</span></div>
+          <div class="step"><strong>Valider</strong><span>Tests, diagnostics, comparaison prévu / observé, analyses de sensibilité</span></div>
+          <div class="step"><strong>Restituer</strong><span>Indicateurs, cartes SIG, tableaux de bord Power BI / Plotly, rapports LaTeX</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Boîte à outils méthodologique</h2>
+        <p class="section-lead">Les familles de méthodes que j’applique concrètement, et où je les ai mobilisées.</p>
+
+        <div class="grid-2">
+          <div class="method">
+            <div class="method-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><path d="M3 3v18h18"/><path d="M5 18c4-1 6-10 9-12s5 0 6 1"/></svg>
+            </div>
+            <h3>Modèles de régression & GLM</h3>
+            <p>Modèles linéaires généralisés, régression logistique binaire et multinomiale, calcul et interprétation des odds ratios, sélection de variables, tests d’adéquation, effets marginaux.</p>
+            <div class="apply">→ Intégration des immigrés, fécondité précoce, état nutritionnel des femmes</div>
+          </div>
+
+          <div class="method">
+            <div class="method-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2"><path d="M3 4h5v4h4v5h4v4h5"/></svg>
+            </div>
+            <h3>Analyse de survie</h3>
+            <p>Estimateur de Kaplan-Meier, test du log-rank, modèles à risques proportionnels de Cox, vérification de l’hypothèse de proportionnalité, covariables dépendantes du temps.</p>
+            <div class="apply">→ Espacement des naissances et survie des enfants (1993–2021), risque de naissance</div>
+          </div>
+
+          <div class="method">
+            <div class="method-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2"><circle cx="7" cy="8" r="2"/><circle cx="16" cy="6" r="2"/><circle cx="12" cy="15" r="2"/><circle cx="18" cy="17" r="2"/><path d="M4 20L20 4"/></svg>
+            </div>
+            <h3>Analyse multivariée</h3>
+            <p>ACP (KMO, sphéricité de Bartlett), ACM/AFCM, classification et typologies, construction d’indices composites et de scores factoriels.</p>
+            <div class="apply">→ Gouvernance mondiale (214 pays), indice de niveau de vie, typologie des jeunes femmes</div>
+          </div>
+
+          <div class="method">
+            <div class="method-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><path d="M3 20h18"/><path d="M6 20V10M10 20V6M14 20v-8M18 20V4"/></svg>
+            </div>
+            <h3>Démographie quantitative</h3>
+            <p>Estimation directe et indirecte (Brass, enfants jamais nés, orphelinat), tables de mortalité, projections par composantes, méthodes de décomposition.</p>
+            <div class="apply">→ Mortalité infanto-juvénile et adulte, projections régionales, SPECTRUM</div>
+          </div>
+
+          <div class="method">
+            <div class="method-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            </div>
+            <h3>Statistique spatiale & SIG</h3>
+            <p>Géocodage massif (API BAN), jointures spatiales, clustering spatialement contraint (ClustGeo, SKATER, contiguïté de type reine), réallocation dasymétrique à l’IRIS.</p>
+            <div class="apply">→ Sectorisation scolaire de Marseille, 393 IRIS regroupés en ~80 grappes</div>
+          </div>
+
+          <div class="method">
+            <div class="method-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2"><path d="M4 7h7M4 12h7M4 17h7"/><path d="M13 7h7M13 12h7M13 17h7"/><path d="M11 7l2 5-2 5"/></svg>
+            </div>
+            <h3>Qualité & appariement de données</h3>
+            <p>Record linkage probabiliste multi-passes, distance de Levenshtein, détection d’incohérences et de fraudes, classification des statuts de concordance.</p>
+            <div class="apply">→ Croisement de bases administratives (~93 000 enregistrements)</div>
+          </div>
+
+          <div class="method">
+            <div class="method-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+            </div>
+            <h3>Échantillonnage & enquêtes</h3>
+            <p>Conception de plans de sondage, pondération, conception de questionnaires, enquêtes quantitatives et qualitatives, analyse textuelle (NVivo).</p>
+            <div class="apply">→ Assainissement des ménages à Ouagadougou, restauration étudiante</div>
+          </div>
+
+          <div class="method">
+            <div class="method-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="4" cy="6" r="2"/><circle cx="20" cy="6" r="2"/><circle cx="4" cy="18" r="2"/><circle cx="20" cy="18" r="2"/><path d="M6 7l4 3M18 7l-4 3M6 17l4-3M18 17l-4-3"/></svg>
+            </div>
+            <h3>Modèles multiniveaux & simulation</h3>
+            <p>Modèles hiérarchiques (MLwiN), simulation multi-agents (NetLogo) pour explorer des scénarios de politiques.</p>
+            <div class="apply">→ Simulation du commerce international entre quatre pays</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Outils & langages</h2>
+        <p class="section-lead">Niveau de maîtrise auto-évalué, selon l’usage réel en projet.</p>
+        <div class="grid-2">
+          <div>
+            <h3 style="margin-top:0">Statistique & programmation</h3>
+            <div class="skill"><div class="skill-head"><span>R (tidyverse, survival, FactoMineR, sf)</span><span>Avancé</span></div><div class="bar"><i data-w="92"></i></div></div>
+            <div class="skill"><div class="skill-head"><span>Stata</span><span>Avancé</span></div><div class="bar"><i data-w="85"></i></div></div>
+            <div class="skill"><div class="skill-head"><span>Excel avancé & VBA (macros)</span><span>Avancé</span></div><div class="bar"><i data-w="90"></i></div></div>
+            <div class="skill"><div class="skill-head"><span>SPSS · SAS</span><span>Confirmé</span></div><div class="bar"><i data-w="75"></i></div></div>
+            <div class="skill"><div class="skill-head"><span>Python (pandas, xlsxwriter)</span><span>Confirmé</span></div><div class="bar"><i data-w="72"></i></div></div>
+            <div class="skill"><div class="skill-head"><span>SQL</span><span>Confirmé</span></div><div class="bar"><i data-w="70"></i></div></div>
+          </div>
+          <div>
+            <h3 style="margin-top:0">Données, SIG & restitution</h3>
+            <div class="skill"><div class="skill-head"><span>QGIS · ArcGIS</span><span>Avancé</span></div><div class="bar"><i data-w="86"></i></div></div>
+            <div class="skill"><div class="skill-head"><span>Power BI · Power Query</span><span>Confirmé</span></div><div class="bar"><i data-w="76"></i></div></div>
+            <div class="skill"><div class="skill-head"><span>KoBoToolbox · ODK · CSPro · Sphinx · LimeSurvey</span><span>Avancé</span></div><div class="bar"><i data-w="88"></i></div></div>
+            <div class="skill"><div class="skill-head"><span>SPECTRUM · NetLogo · MLwiN</span><span>Confirmé</span></div><div class="bar"><i data-w="72"></i></div></div>
+            <div class="skill"><div class="skill-head"><span>LaTeX / Beamer · XML / XSL</span><span>Avancé</span></div><div class="bar"><i data-w="84"></i></div></div>
+            <div class="skill"><div class="skill-head"><span>NVivo (qualitatif)</span><span>Confirmé</span></div><div class="bar"><i data-w="68"></i></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== EXPÉRIENCES ==================== -->
+    <section id="experiences" class="tab-content">
+      <div class="card">
+        <h2>Expériences professionnelles</h2>
+        <p class="section-lead">La statistique appliquée à des enjeux concrets, avec des résultats mesurables.</p>
+
+        <div class="timeline">
+          <div class="t-item current">
+            <h3>Chargé d’études statistiques · Socio-démographe · Chef de projet</h3>
+            <div class="item-meta">Ville de Marseille · Direction de l’Éducation · Division des inscriptions et prévisions scolaires · Stage de Master 2 MASS POP · 2026</div>
+            <p>
+              Un poste à trois dimensions : <strong>chargé d’études statistiques</strong> (modéliser, prévoir, valider),
+              <strong>socio-démographe</strong> (lire les dynamiques de population derrière les effectifs) et
+              <strong>chef de projet</strong> (cadrer, coordonner, livrer). J’ai construit les outils qui permettent
+              d’anticiper les effectifs, d’ajuster la carte scolaire et de dimensionner les besoins en classes et en postes.
+            </p>
+            <div class="mini-kpis">
+              <div class="mini-kpi"><b>474</b>écoles modélisées</div>
+              <div class="mini-kpi"><b>~92 000</b>adresses géocodées</div>
+              <div class="mini-kpi"><b>~93 000</b>enregistrements appariés</div>
+              <div class="mini-kpi"><b>13</b>outils automatisés</div>
+              <div class="mini-kpi"><b>2025 → 2035</b>horizon de projection</div>
+            </div>
+            <ul>
+              <li><strong>Prévision des effectifs</strong> : modèle de carte scolaire pluriannuel (rentrées 2026 à 2029) par école et par niveau, montée de cohortes avec taux de passage paramétrables, scénarios d’ouverture/fermeture de classes selon les seuils de dédoublement (REP+, REP, hors REP).</li>
+              <li><strong>Validation des modèles</strong> : comparaison rétrospective prévu / observé (2022–2025) par niveau entre l’outil de modélisation des effectifs et les comptages réels.</li>
+              <li><strong>Statistique spatiale</strong> : pipeline R de géocodage (API BAN + repli Google Maps) de ~92 000 adresses d’élèves, export en shapefiles pour QGIS ; réallocation dasymétrique à l’échelle IRIS.</li>
+              <li><strong>Clustering sous contrainte</strong> : regroupement de 393 IRIS en ~80 grappes (ClustGeo/SKATER, routage OSRM, contiguïté), puis extension de 77 à 90 grappes opérationnelles.</li>
+              <li><strong>Qualité des données</strong> : appariement probabiliste multi-passes de bases administratives, tableau de bord de détection d’incohérences (distance de Levenshtein, Plotly/DataTable).</li>
+              <li><strong>Aide à la décision</strong> : étude d’impact de faisabilité d’une nouvelle entrée d’école (cartographie QGIS, couches OpenStreetMap), indicateurs de saturation, grilles de capacité 2025–2035, synthèses des dérogations par secteur.</li>
+              <li><strong>Gestion de projet</strong> : cadrage des besoins avec les services, planification des livrables, notes méthodologiques et comptes rendus, présentations aux décideurs, documentation des modèles pour leur reprise par les équipes.</li>
+              <li><strong>Industrialisation</strong> : 13 outils automatisés (R, VBA, Python) qui remplacent des traitements manuels et rendent les mises à jour reproductibles.</li>
+            </ul>
+            <div class="tags">
+              <span class="tag amber">Gestion de projet</span>
+              <span class="tag">Prévision</span><span class="tag teal">Statistique spatiale</span><span class="tag violet">Record linkage</span><span class="tag amber">R · VBA · Python · QGIS</span>
+            </div>
+          </div>
+
+          <div class="t-item">
+            <h3>Assistant de recherche en éthique de la recherche sur les sujets humains</h3>
+            <div class="item-meta">Projet financé par la National Science Foundation (USA) · Équipes USA, Népal, Canada · Juillet – Septembre 2025</div>
+            <ul>
+              <li>Analyse de protocoles de recherche et revue systématique de la littérature.</li>
+              <li>Travail sur le consentement éclairé, la protection des données personnelles et la recherche auprès de populations vulnérables.</li>
+              <li>Contribution à la rédaction de notes et de rapports scientifiques en contexte international.</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">Éthique</span><span class="tag teal">Protection des données</span><span class="tag violet">Recherche internationale</span>
+            </div>
+          </div>
+
+          <div class="t-item">
+            <h3>Responsable du département statistique & gestionnaire de bases de données</h3>
+            <div class="item-meta">Agence de Conseil, de Service et de Formation (ACSF) · Burkina Faso · Juillet – Novembre 2024 · Stage de Master 1</div>
+            <p>Création <strong>ex nihilo</strong> du département statistique de l’agence, centré sur le lien entre éducation et territoire.</p>
+            <ul>
+              <li>Pilotage de bout en bout de la collecte, du nettoyage et de l’analyse des données du secteur de l’éducation.</li>
+              <li>Conception de bases de données fiables et documentées pour le suivi-évaluation des projets.</li>
+              <li>Production d’indicateurs statistiques et de rapports d’aide à la décision pour les partenaires.</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">Gestion de bases de données</span><span class="tag teal">Suivi-évaluation</span><span class="tag violet">Indicateurs</span>
+            </div>
+          </div>
+
+          <div class="t-item">
+            <h3>Pratique d’enquête : approche quantitative</h3>
+            <div class="item-meta">ISSP · Burkina Faso · 2023–2024</div>
+            <p>Enquête sur l’assainissement des ménages des quartiers non lotis de Ouagadougou : conception du questionnaire, échantillonnage, collecte numérique et analyse statistique.</p>
+          </div>
+
+          <div class="t-item">
+            <h3>Pratique d’enquête : approche qualitative</h3>
+            <div class="item-meta">ISSP · Burkina Faso · 2023–2024</div>
+            <p>Étude sur la restauration des étudiant·e·s au restaurant central de l’Université Joseph KI-ZERBO : entretiens, codage thématique sous NVivo et synthèse des perceptions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PROJETS ==================== -->
+    <section id="projets" class="tab-content">
+      <div class="card feature">
+        <div class="feature-label">Mémoire de Master 2 MASS POP · Aix-Marseille Université</div>
+        <h2 style="margin-top:6px">Prévoir les effectifs scolaires pour piloter la carte scolaire : modélisation démographique et spatiale appliquée à la Ville de Marseille</h2>
+        <div class="item-meta">Stage à la Direction de l’Éducation de la Ville de Marseille · Soutenu en septembre 2026</div>
+        <p>
+          Comment anticiper, école par école et niveau par niveau, le nombre d’élèves des prochaines rentrées,
+          et en déduire les besoins en classes, en postes et en ajustements de sectorisation ? Le mémoire répond
+          à cette question opérationnelle par une démarche statistique complète, sur les 474 écoles publiques
+          de la ville.
+        </p>
+        <div class="grid-2">
+          <div>
+            <h3>Démarche</h3>
+            <ul>
+              <li><strong>Constitution des données</strong> : géocodage de ~92 000 adresses d’élèves, appariement probabiliste de bases administratives (~93 000 enregistrements), contrôles de qualité.</li>
+              <li><strong>Désagrégation spatiale</strong> : réallocation dasymétrique des populations à l’échelle IRIS vers les secteurs scolaires.</li>
+              <li><strong>Projection</strong> : montée de cohortes par niveau (TPS→GS, CP→CM2) avec taux de passage paramétrables, sur un horizon pluriannuel.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Validation & restitution</h3>
+            <ul>
+              <li><strong>Backtesting</strong> : comparaison prévu / observé par niveau sur 2022–2025.</li>
+              <li><strong>Scénarios</strong> : ouvertures et fermetures de classes selon les seuils de dédoublement et la capacité d’accueil.</li>
+              <li><strong>Zonage</strong> : regroupement de 393 IRIS en ~80 grappes par clustering spatialement contraint.</li>
+              <li><strong>Livrables</strong> : outil de prévision réutilisable, cartes, notes méthodologiques.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tags">
+          <span class="tag">Projection par cohortes</span><span class="tag teal">Statistique spatiale</span><span class="tag violet">Record linkage</span><span class="tag amber">Backtesting</span>
+        </div>
+      </div>
+
+      <div class="card feature">
+        <div class="feature-label">Mémoire de recherche · Master de Démographie</div>
+        <h2 style="margin-top:6px">Effet de l’espacement des naissances sur la survie des enfants de moins de 5 ans au Burkina Faso</h2>
+        <div class="item-meta">Analyse exploratoire des changements dans le temps, de 1993 à 2021 · ISSP · 2023–2025</div>
+        <p>
+          Exploitation de près de trois décennies d’Enquêtes Démographiques et de Santé pour mesurer comment
+          l’intervalle intergénésique influence le risque de décès avant 5 ans, et comment cet effet a évolué
+          dans le temps.
+        </p>
+        <ul>
+          <li>Harmonisation de plusieurs vagues d’enquêtes EDS sur la période 1993–2021.</li>
+          <li>Courbes de survie de Kaplan-Meier par durée d’intervalle et tests du log-rank.</li>
+          <li>Modèles à risques proportionnels de Cox, avec contrôle des facteurs socio-démographiques.</li>
+          <li>Comparaison des rapports de risque entre périodes pour caractériser les changements.</li>
+        </ul>
+        <div class="tags">
+          <span class="tag teal">Analyse de survie</span><span class="tag">Kaplan-Meier</span><span class="tag">Modèle de Cox</span><span class="tag violet">Données EDS</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Projets statistiques</h2>
+        <p class="section-lead">Filtrez par famille de méthodes.</p>
+
+        <div class="filters" id="filters">
+          <button class="filter-btn active" data-filter="all">Tous</button>
+          <button class="filter-btn" data-filter="regression">Régression</button>
+          <button class="filter-btn" data-filter="survie">Survie</button>
+          <button class="filter-btn" data-filter="multivarie">Multivarié & indices</button>
+          <button class="filter-btn" data-filter="demo">Démographie</button>
+          <button class="filter-btn" data-filter="spatial">Spatial</button>
+          <button class="filter-btn" data-filter="simulation">Simulation & qualitatif</button>
+        </div>
+
+        <div class="projects" id="projects">
+          <article class="project" data-cat="regression">
+            <div class="item-meta">Aix-Marseille Université · 2025–2026</div>
+            <h3>Intégration des immigrés d’Afrique de l’Ouest et du Nord</h3>
+            <p>Modélisation de la probabilité d’intégration et identification des facteurs socio-économiques associés.</p>
+            <div class="method-line">logit binaire · odds ratios · effets marginaux</div>
+          </article>
+
+          <article class="project" data-cat="simulation">
+            <div class="item-meta">Aix-Marseille Université · 2025–2026</div>
+            <h3>Simulation multi-agents du commerce international entre quatre pays</h3>
+            <p>Modèle multi-agents simulant les échanges entre économies contrastées et exploration de scénarios de politiques commerciales.</p>
+            <div class="method-line">NetLogo · modélisation à base d’agents · scénarios</div>
+          </article>
+
+          <article class="project" data-cat="regression">
+            <div class="item-meta">ISSP · 2024–2025</div>
+            <h3>Statut socioéconomique et état nutritionnel des femmes au Burkina Faso</h3>
+            <p>Association entre niveau de vie et statut nutritionnel (maigreur, normal, surpoids) à partir des données EDS.</p>
+            <div class="method-line">logit multinomial · RRR · données EDS</div>
+          </article>
+
+          <article class="project" data-cat="regression">
+            <div class="item-meta">ISSP · 2024–2025</div>
+            <h3>Fécondité précoce des adolescentes et jeunes filles</h3>
+            <p>Identification des déterminants socio-démographiques de la maternité précoce au Burkina Faso.</p>
+            <div class="method-line">logit binaire · sélection de variables</div>
+          </article>
+
+          <article class="project" data-cat="survie">
+            <div class="item-meta">ISSP · 2024–2025</div>
+            <h3>Risque de naissance et écarts entre conjoints</h3>
+            <p>Effet des écarts d’instruction et d’emploi entre conjoints sur le calendrier des naissances.</p>
+            <div class="method-line">Kaplan-Meier · modèle de Cox · log-rank</div>
+          </article>
+
+          <article class="project" data-cat="multivarie">
+            <div class="item-meta">ISSP · 2024–2025</div>
+            <h3>ACP des indicateurs mondiaux de gouvernance (214 pays, 2016)</h3>
+            <p>Réduction de dimension et positionnement des pays sur le premier plan factoriel.</p>
+            <div class="method-line">corrélations · KMO · Bartlett · ACP</div>
+          </article>
+
+          <article class="project" data-cat="multivarie">
+            <div class="item-meta">ISSP · 2024–2025</div>
+            <h3>Indice de niveau de vie des ménages</h3>
+            <p>Construction d’un proxy de richesse à partir des biens et caractéristiques de l’habitat, puis classement en quintiles.</p>
+            <div class="method-line">ACP · scores factoriels · quintiles</div>
+          </article>
+
+          <article class="project" data-cat="multivarie">
+            <div class="item-meta">ISSP · 2024–2025</div>
+            <h3>Score composite d’insécurité alimentaire des ménages</h3>
+            <p>Agrégation de 9 items d’une échelle de Likert pondérée en un score global, classement des ménages en quartiles.</p>
+            <div class="method-line">indice composite · pondération · quartiles</div>
+          </article>
+
+          <article class="project" data-cat="multivarie">
+            <div class="item-meta">ISSP · 2024–2025</div>
+            <h3>Typologie des adolescentes et jeunes femmes de 18–24 ans</h3>
+            <p>Profils selon milieu de résidence, niveau de vie, précocité sexuelle, union et contraception.</p>
+            <div class="method-line">ACM / AFCM · typologie</div>
+          </article>
+
+          <article class="project" data-cat="demo">
+            <div class="item-meta">ISSP · 2024–2025</div>
+            <h3>Évolution des violences physiques faites aux femmes</h3>
+            <p>Burkina Faso (2010–2021) et Côte d’Ivoire (2011–2021) : part de l’évolution due aux changements de structure selon l’instruction.</p>
+            <div class="method-line">méthodes de décomposition · comparaison inter-pays</div>
+          </article>
+
+          <article class="project" data-cat="demo">
+            <div class="item-meta">ISSP · 2023–2024</div>
+            <h3>Estimation indirecte de la mortalité des enfants et des adultes</h3>
+            <p>Mesure de la mortalité en contexte de sous-enregistrement de l’état civil.</p>
+            <div class="method-line">Brass · orphelinat · enfants jamais nés</div>
+          </article>
+
+          <article class="project" data-cat="demo">
+            <div class="item-meta">ISSP · 2023–2024</div>
+            <h3>Estimation directe de la mortalité des enfants</h3>
+            <p>Construction d’indicateurs à partir des dates d’événements et confrontation aux estimations indirectes.</p>
+            <div class="method-line">quotients de mortalité · validation croisée</div>
+          </article>
+
+          <article class="project" data-cat="demo">
+            <div class="item-meta">ISSP · 2023–2024</div>
+            <h3>Projection démographique de la région du Centre-Ouest</h3>
+            <p>Projections selon plusieurs scénarios d’évolution de la fécondité, de la mortalité et des migrations.</p>
+            <div class="method-line">méthode des composantes · SPECTRUM · scénarios</div>
+          </article>
+
+          <article class="project" data-cat="demo">
+            <div class="item-meta">ISSP · 2023–2024</div>
+            <h3>Méthodes indirectes d’estimation démographique</h3>
+            <p>Mise en œuvre comparée des principales méthodes indirectes et discussion critique de leurs hypothèses.</p>
+            <div class="method-line">Brass · orphelinat · analyse des biais</div>
+          </article>
+
+          <article class="project" data-cat="spatial">
+            <div class="item-meta">ISSP · 2023–2024</div>
+            <h3>Répartition spatiale des infrastructures sanitaires au Burkina Faso</h3>
+            <p>Cartographie de l’offre de soins et identification des zones sous-dotées.</p>
+            <div class="method-line">SIG · ArcGIS / QGIS · analyse spatiale</div>
+          </article>
+
+          <article class="project" data-cat="spatial">
+            <div class="item-meta">Ville de Marseille · 2026</div>
+            <h3>Grappes scolaires par clustering spatialement contraint</h3>
+            <p>Regroupement de 393 IRIS en ~80 grappes respectant contiguïté et contraintes maternelle / élémentaire.</p>
+            <div class="method-line">ClustGeo · SKATER · OSRM · contiguïté reine</div>
+          </article>
+
+          <article class="project" data-cat="simulation">
+            <div class="item-meta">ISSP · 2023–2024</div>
+            <h3>Analyse qualitative de la restauration étudiante</h3>
+            <p>Codage thématique d’entretiens et synthèse des perceptions des étudiant·e·s.</p>
+            <div class="method-line">NVivo · Excel · analyse thématique</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PARCOURS ==================== -->
+    <section id="parcours" class="tab-content">
+      <div class="card">
+        <h2>Parcours académique</h2>
+        <p class="section-lead">Économie, puis démographie, puis mathématiques appliquées : une montée en puissance statistique.</p>
+
+        <div class="timeline">
+          <div class="t-item current">
+            <h3>Master 2 Mathématiques Appliquées, Statistique, MASS POP</h3>
+            <div class="item-meta">Aix-Marseille Université · France · 2025–2026 · Bourse d’excellence Tiger (AMIDEX)</div>
+            <p>
+              Mémoire : prévision des effectifs scolaires et carte scolaire de la Ville de Marseille.
+              Mathématiques appliquées et sciences sociales, Analyse des populations. Inférence statistique,
+              modélisation avancée, modèles multiniveaux, simulation multi-agents et outils de data science
+              appliqués aux questions de population.
+            </p>
+            <div class="tags"><span class="tag">Modélisation</span><span class="tag teal">Data science</span><span class="tag violet">Simulation</span></div>
+          </div>
+
+          <div class="t-item">
+            <h3>Master de Recherche en Démographie</h3>
+            <div class="item-meta">Institut Supérieur des Sciences de la Population (ISSP) · Université Joseph KI-ZERBO · Burkina Faso · 2023–2025 · Boursier (parmi les 5 premiers admis)</div>
+            <p>
+              Analyse des dynamiques de population (mortalité, fécondité, migrations), méthodes directes et indirectes
+              d’estimation, analyse de survie, analyse multivariée, techniques d’enquête et évaluation des politiques
+              publiques.
+            </p>
+            <div class="tags"><span class="tag">Analyse de survie</span><span class="tag teal">Méthodes démographiques</span><span class="tag violet">Enquêtes</span></div>
+          </div>
+
+          <div class="t-item">
+            <h3>Licence en Sciences Économiques et de Gestion, Analyse et Politiques Économiques</h3>
+            <div class="item-meta">Université Norbert ZONGO · Burkina Faso · 2018–2022</div>
+            <p>
+              Fondamentaux de microéconomie, macroéconomie, économétrie et statistique appliquée à l’analyse
+              des politiques publiques.
+            </p>
+            <div class="tags"><span class="tag">Économétrie</span><span class="tag teal">Politiques publiques</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="foot-title">Travaillons ensemble sur vos données</div>
+    <div>Études statistiques · Études actuarielles (prévoyance, santé, retraite) · Prévision démographique · Analyse spatiale</div>
+    <div class="contact-row">
+      <a class="chip-link primary" href="mailto:awilfried.bamouni@gmail.com">✉ awilfried.bamouni@gmail.com</a>
+      <a class="chip-link" href="mailto:armand-wilfried.bamouni@etu.univ-amu.fr">✉ armand-wilfried.bamouni@etu.univ-amu.fr</a>
+      <a class="chip-link" href="tel:+33753697594">☎ +33 7 53 69 75 94</a>
+      <a class="chip-link" href="https://www.linkedin.com/in/a-w-bamouni/" target="_blank" rel="noopener">
+        <span class="in-badge">in</span> a-w-bamouni
+      </a>
+    </div>
+    <p style="margin-top:18px;font-size:0.78rem;opacity:0.7;">© 2026 Armand-Wilfried BAMOUNI · Marseille</p>
+  </footer>
+
+  <script>
+    // ---------- Onglets ----------
+    const buttons = document.querySelectorAll(".tab-btn");
+    const contents = document.querySelectorAll(".tab-content");
+
+    function animateBars(scope) {
+      scope.querySelectorAll(".bar > i").forEach((bar) => {
+        bar.style.width = bar.dataset.w + "%";
+      });
+    }
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const tabId = btn.dataset.tab;
+        buttons.forEach((b) => b.classList.toggle("active", b === btn));
+        contents.forEach((s) => s.classList.toggle("active", s.id === tabId));
+        const target = document.getElementById(tabId);
+        animateBars(target);
+        const nav = document.querySelector(".tabs-wrap");
+        if (window.scrollY > nav.offsetTop) {
+          window.scrollTo({ top: nav.offsetTop, behavior: "smooth" });
+        }
+      });
+    });
+
+    // ---------- Filtres projets ----------
+    const filterBtns = document.querySelectorAll(".filter-btn");
+    const projects = document.querySelectorAll(".project");
+
+    filterBtns.forEach((btn) => {
+      const f = btn.dataset.filter;
+      const n = f === "all" ? projects.length : document.querySelectorAll(`.project[data-cat="${f}"]`).length;
+      btn.insertAdjacentHTML("beforeend", ` <span class="filter-count">(${n})</span>`);
+
+      btn.addEventListener("click", () => {
+        filterBtns.forEach((b) => b.classList.toggle("active", b === btn));
+        projects.forEach((p) => {
+          p.classList.toggle("hidden", f !== "all" && p.dataset.cat !== f);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
