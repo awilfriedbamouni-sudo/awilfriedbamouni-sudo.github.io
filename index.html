@@ -235,6 +235,61 @@
       .bridge td, .bridge td:first-child, .bridge td:last-child { width: auto; border: 1px solid var(--line); border-radius: 12px; margin-bottom: 4px; }
     }
 
+    /* Badge disponibilité */
+    .open-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #d1fae5;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(52, 211, 153, 0.45);
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin: 0 0 18px 8px;
+    }
+    .open-badge i {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #34d399;
+      box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.6); }
+      70% { box-shadow: 0 0 0 8px rgba(52, 211, 153, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); }
+    }
+
+    .job-card {
+      background: linear-gradient(135deg, #ecfdf5, #eff6ff);
+      border: 1px solid #a7f3d0;
+    }
+    .job-card .roles { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 14px; }
+    .job-card .roles span {
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 10px;
+      background: #fff;
+      border: 1px solid #d1fae5;
+      color: #065f46;
+    }
+    .job-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.92rem;
+    }
+    .job-cta:hover { background: #1d4ed8; }
+
     /* ---------- NAV ---------- */
     .tabs-wrap {
       position: sticky;
@@ -658,6 +713,7 @@
 
     <div class="hero-inner">
       <div class="eyebrow">μ · σ · β · h(t) · Marseille, France</div>
+      <div class="open-badge"><i></i>En recherche d’emploi</div>
       <h1>Armand-Wilfried BAMOUNI</h1>
       <p class="hero-title">Chargé d’études <span>statistiques &amp; actuarielles</span> · Démographe · Économiste</p>
       <p class="hero-pitch">
@@ -700,6 +756,17 @@
 
     <!-- ==================== À PROPOS ==================== -->
     <section id="apropos" class="tab-content active">
+      <div class="card job-card">
+        <h2>En recherche d’emploi</h2>
+        <p class="section-lead">Ouvert aux opportunités dans le secteur public comme dans le secteur privé.</p>
+        <div class="roles">
+          <span>Chargé d’études statistiques</span>
+          <span>Chargé d’études actuarielles : prévoyance, santé, retraite</span>
+          <span>Démographe · Socio-démographe</span>
+          <span>Chargé d’études prospectives</span>
+        </div>
+        <a class="job-cta" href="mailto:awilfried.bamouni@gmail.com?subject=Proposition%20de%20poste">✉ Me contacter pour une opportunité</a>
+      </div>
       <div class="card">
         <h2>Des données à la décision</h2>
         <p class="section-lead">Statistique appliquée · Démographie · Économie</p>
@@ -730,6 +797,11 @@
           sous hypothèses et suivi prévu / observé. Je souhaite mettre ces compétences au service des collectivités,
           de la santé publique, des mutuelles et groupes de protection sociale, des assureurs et des cabinets
           d’études et de conseil.
+        </p>
+        <p>
+          <strong>Je suis actuellement à la recherche d’un emploi</strong> de chargé d’études statistiques,
+          de chargé d’études actuarielles (prévoyance, santé, retraite) ou de démographe / socio-démographe,
+          dans le secteur public comme dans le secteur privé.
         </p>
         <p>
           Curieux de nature, <strong>j’aime apprendre de nouvelles choses</strong> et je m’adapte rapidement aux
@@ -1345,7 +1417,7 @@
   </main>
 
   <footer>
-    <div class="foot-title">Travaillons ensemble sur vos données</div>
+    <div class="foot-title">En recherche d’emploi : parlons de votre poste</div>
     <div>Études statistiques · Études actuarielles (prévoyance, santé, retraite) · Prévision démographique · Analyse spatiale</div>
     <div class="contact-row">
       <a class="chip-link primary" href="mailto:awilfried.bamouni@gmail.com">✉ awilfried.bamouni@gmail.com</a>
