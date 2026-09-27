@@ -1183,35 +1183,34 @@
     <section id="projets" class="tab-content">
       <div class="card feature">
         <div class="feature-label">Mémoire de Master 2 MASS POP · Aix-Marseille Université</div>
-        <h2 style="margin-top:6px">Prévoir les effectifs scolaires pour piloter la carte scolaire : modélisation démographique et spatiale appliquée à la Ville de Marseille</h2>
-        <div class="item-meta">Stage à la Direction de l’Éducation de la Ville de Marseille · Soutenu en septembre 2026</div>
+        <h2 style="margin-top:6px">Concevoir et actualiser les périmètres scolaires à l’échelle infracommunale : articuler données quantitatives et qualitatives pour la sectorisation des écoles publiques marseillaises</h2>
+        <p style="font-style:italic;color:var(--ink-soft);margin-top:4px;">Prospective démographique, géomatique et concertation au service de la définition des secteurs de scolarisation</p>
+        <div class="item-meta">Stage à la Direction de l’Éducation, Division Sectorisation et Prospective Scolaire, Ville de Marseille · Responsable de stage : Agathe BIDAUD · Responsable pédagogique : Bénédicte GASTINEAU · 2026</div>
         <p>
-          Comment anticiper, école par école et niveau par niveau, le nombre d’élèves des prochaines rentrées,
-          et en déduire les besoins en classes, en postes et en ajustements de sectorisation ? Le mémoire répond
-          à cette question opérationnelle par une démarche statistique complète, sur les 474 écoles publiques
-          de la ville.
+          Le Plan Écoles et la gestion de la saturation obligent la Ville de Marseille à revoir presque en continu
+          ses périmètres scolaires, en arbitrant entre trois critères qui se contredisent souvent : la proximité
+          domicile-école, la mixité sociale et la capacité d’accueil. Le mémoire propose de reconstruire les grappes
+          d’écoles à partir des <strong>IRIS</strong> plutôt que de la seule proximité entre établissements, pour
+          s’appuyer sur des données démographiques fiables et projetables dans le temps.
         </p>
-        <div class="grid-2">
-          <div>
-            <h3>Démarche</h3>
-            <ul>
-              <li><strong>Constitution des données</strong> : géocodage de ~92 000 adresses d’élèves, appariement probabiliste de bases administratives (~93 000 enregistrements), contrôles de qualité.</li>
-              <li><strong>Désagrégation spatiale</strong> : réallocation dasymétrique des populations à l’échelle IRIS vers les secteurs scolaires.</li>
-              <li><strong>Projection</strong> : montée de cohortes par niveau (TPS→GS, CP→CM2) avec taux de passage paramétrables, sur un horizon pluriannuel.</li>
-            </ul>
-          </div>
-          <div>
-            <h3>Validation & restitution</h3>
-            <ul>
-              <li><strong>Backtesting</strong> : comparaison prévu / observé par niveau sur 2022–2025.</li>
-              <li><strong>Scénarios</strong> : ouvertures et fermetures de classes selon les seuils de dédoublement et la capacité d’accueil.</li>
-              <li><strong>Zonage</strong> : regroupement de 393 IRIS en ~80 grappes par clustering spatialement contraint.</li>
-              <li><strong>Livrables</strong> : outil de prévision réutilisable, cartes, notes méthodologiques.</li>
-            </ul>
-          </div>
+        <div class="mini-kpis">
+          <div class="mini-kpi"><b>27 062</b>élèves géocodés</div>
+          <div class="mini-kpi"><b>179</b>écoles et leurs capacités</div>
+          <div class="mini-kpi"><b>8</b>arrondissements étudiés</div>
+          <div class="mini-kpi"><b>2008 → 2025</b>naissances de l’état civil</div>
+          <div class="mini-kpi"><b>2035</b>horizon de projection</div>
         </div>
+        <h3>Démarche</h3>
+        <ul>
+          <li><strong>Géocodage</strong> des adresses des élèves via l’API BAN, sur huit arrondissements retenus pour leur dynamique démographique.</li>
+          <li><strong>Réallocation dasymétrique</strong> des populations IRIS, pondérée par les logements habités.</li>
+          <li><strong>Clustering spatial contraint</strong> (ClustGeo, SKATER) pour former des grappes d’IRIS contiguës et équilibrées sur la capacité d’accueil réelle.</li>
+          <li><strong>Projection Hamilton-Perry enrichie</strong> : taux de rétention calibré sur les naissances de l’état civil, logements neufs issus des permis de construire et fécondité apparente par IRIS.</li>
+          <li><strong>Diagnostic des secteurs officiels</strong> de scolarisation et pistes de redécoupage.</li>
+          <li><strong>Volet terrain</strong> : étude d’accessibilité multicritère, concertation sur un partage de périmètre et étude de faisabilité d’une nouvelle entrée d’école.</li>
+        </ul>
         <div class="tags">
-          <span class="tag">Projection par cohortes</span><span class="tag teal">Statistique spatiale</span><span class="tag violet">Record linkage</span><span class="tag amber">Backtesting</span>
+          <span class="tag">Méthode des cohortes</span><span class="tag teal">Géomatique · IRIS</span><span class="tag violet">Clustering spatial</span><span class="tag amber">R · QGIS · VBA</span><span class="tag">Mixité sociale</span>
         </div>
       </div>
 
@@ -1383,7 +1382,7 @@
             <h3>Master 2 Mathématiques Appliquées, Statistique, MASS POP</h3>
             <div class="item-meta">Aix-Marseille Université · France · 2025–2026 · Bourse d’excellence Tiger (AMIDEX)</div>
             <p>
-              Mémoire : prévision des effectifs scolaires et carte scolaire de la Ville de Marseille.
+              Mémoire : « Concevoir et actualiser les périmètres scolaires à l’échelle infracommunale : articuler données quantitatives et qualitatives pour la sectorisation des écoles publiques marseillaises ».
               Mathématiques appliquées et sciences sociales, Analyse des populations. Inférence statistique,
               modélisation avancée, modèles multiniveaux, simulation multi-agents et outils de data science
               appliqués aux questions de population.
